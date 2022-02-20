@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		613F5E0F27C2887D0035F4E1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 613F5E0E27C2887D0035F4E1 /* Extensions.swift */; };
 		618714EC27AF112D00ECE17E /* MemorizeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618714EB27AF112D00ECE17E /* MemorizeApp.swift */; };
 		618714EE27AF112D00ECE17E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 618714ED27AF112D00ECE17E /* ContentView.swift */; };
 		618714F027AF112E00ECE17E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 618714EF27AF112E00ECE17E /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		613F5E0E27C2887D0035F4E1 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		618714E827AF112D00ECE17E /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		618714EB27AF112D00ECE17E /* MemorizeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemorizeApp.swift; sourceTree = "<group>"; };
 		618714ED27AF112D00ECE17E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				61D362DC27BC103C0032BEF1 /* EmojiMemoryGame.swift */,
 				618714EB27AF112D00ECE17E /* MemorizeApp.swift */,
 				618714ED27AF112D00ECE17E /* ContentView.swift */,
+				613F5E0E27C2887D0035F4E1 /* Extensions.swift */,
 				618714EF27AF112E00ECE17E /* Assets.xcassets */,
 				618714F127AF112E00ECE17E /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				613F5E0F27C2887D0035F4E1 /* Extensions.swift in Sources */,
 				61D362DB27BC0DCF0032BEF1 /* MemoryGame.swift in Sources */,
 				618714EE27AF112D00ECE17E /* ContentView.swift in Sources */,
 				618714EC27AF112D00ECE17E /* MemorizeApp.swift in Sources */,
