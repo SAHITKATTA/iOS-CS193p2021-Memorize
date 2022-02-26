@@ -16,3 +16,9 @@ extension String {
         Array(self).map(String.init)
     }
 }
+
+extension Array {
+    var oneAndOnly: Element? {
+        self.count == 1 ? self.first : nil
+    }
+}

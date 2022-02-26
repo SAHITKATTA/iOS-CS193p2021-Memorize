@@ -12,17 +12,20 @@ import Foundation
 
 // making our view model Observable
 class EmojiMemoryGame: ObservableObject {
+    
+    typealias Card = MemoryGame<String>.Card
+    typealias Theme = MemoryGame<String>.Theme
 
-    static var themes: Array<MemoryGame<String>.Theme> = [
-        MemoryGame<String>.Theme(name: "Vehicles", cardContents:  "🛥🚀✈️🚇🚡🚘🛺🛵🚲🚜🚛🚓🚗🚑🚙🏎🚂🛩🛸🚁🚢".toStringArray(), numberOfPairsOfCards: 5, color: .red),
-        MemoryGame<String>.Theme(name: "Expressions", cardContents:  "😀😆🤣😂😊😇🙂😉🙃😌😜🧐😎😒😔".toStringArray(), numberOfPairsOfCards: 6, color: .blue),
-        MemoryGame<String>.Theme(name: "Animals", cardContents:  "🐶🐱🐭🐹🐰🦊🐻🐼🐯🦁🐷🐸🐵🐧🐤🐣🦅🦇🦋".toStringArray(), numberOfPairsOfCards: 7, color: .yellow),
-        MemoryGame<String>.Theme(name: "Food", cardContents:  "🍎🍉🍒🍓🍈🍑🍅🥝🍆🥑🥬🌽🌶🥕🥯🧀🥞🥩🧇🍗🍔🍟🍕".toStringArray(), numberOfPairsOfCards: 8, color: .orange),
-        MemoryGame<String>.Theme(name: "Apple", cardContents:  "⌚️📱💻⌨️🖥🖱🎧👨‍💻".toStringArray(), color: .gray),
-        MemoryGame<String>.Theme(name: "Music", cardContents:  "🎶🎼🎵🎤🎸🎧🥁🎹🎺🎻🎷🪗🪘🪕".toStringArray(), numberOfPairsOfCards: 10, color: .teal),
+    private static var themes = [
+        Theme(name: "Vehicles", cardContents:  "🛥🚀✈️🚇🚡🚘🛺🛵🚲🚜🚛🚓🚗🚑🚙🏎🚂🛩🛸🚁🚢".toStringArray(), numberOfPairsOfCards: 5, color: .red),
+        Theme(name: "Expressions", cardContents:  "😀😆🤣😂😊😇🙂😉🙃😌😜🧐😎😒😔".toStringArray(), numberOfPairsOfCards: 6, color: .blue),
+        Theme(name: "Animals", cardContents:  "🐶🐱🐭🐹🐰🦊🐻🐼🐯🦁🐷🐸🐵🐧🐤🐣🦅🦇🦋".toStringArray(), numberOfPairsOfCards: 7, color: .yellow),
+        Theme(name: "Food", cardContents:  "🍎🍉🍒🍓🍈🍑🍅🥝🍆🥑🥬🌽🌶🥕🥯🧀🥞🥩🧇🍗🍔🍟🍕".toStringArray(), numberOfPairsOfCards: 8, color: .orange),
+        Theme(name: "Apple", cardContents:  "⌚️📱💻⌨️🖥🖱🎧👨‍💻".toStringArray(), color: .gray),
+        Theme(name: "Music", cardContents:  "🎶🎼🎵🎤🎸🎧🥁🎹🎺🎻🎷🪗🪘🪕".toStringArray(), numberOfPairsOfCards: 10, color: .teal),
     ]
     
-    static func createMemoryGame() -> MemoryGame<String>{
+    private static func createMemoryGame() -> MemoryGame<String>{
         let theme = themes[Int.random(in: 0..<themes.count)]
         let emojis = theme.cardContents.shuffled()[0..<theme.numberOfPairsOfCards]
         return MemoryGame<String>(theme: theme) { pairIndex in
@@ -30,7 +33,7 @@ class EmojiMemoryGame: ObservableObject {
         }
     }
 
-    static func addTheme(_ theme: MemoryGame<String>.Theme){
+    static func addTheme(_ theme: Theme){
         themes.append(theme)
     }
     
@@ -40,13 +43,13 @@ class EmojiMemoryGame: ObservableObject {
 
     // publish changes to view when model variable is changed
     // Swift can detect changes in struct
-    @Published private var model: MemoryGame<String> = createMemoryGame()
+    @Published private var model = createMemoryGame()
     
     // Getters for View
-    var cards: Array<MemoryGame<String>.Card> {
+    var cards: Array<Card> {
         model.cards
     }
-    var theme: MemoryGame<String>.Theme {
+    var theme: Theme {
         model.currentTheme
     }
     var score: Int {
@@ -55,12 +58,12 @@ class EmojiMemoryGame: ObservableObject {
     
     // MARK: - Intent(s)
     
-    func choose(_ card: MemoryGame<String>.Card) {
+    func choose(_ card: Card) {
         model.choose(card)
 //        objectWillChange.send() publish changes to view
     }
     
-    func select(theme: MemoryGame<String>.Theme) {
+    func select(theme: Theme) {
         model.select(theme: theme)
     }
 }
