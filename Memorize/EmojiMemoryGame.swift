@@ -66,4 +66,7 @@ class EmojiMemoryGame: ObservableObject {
     func select(theme: Theme) {
         model.select(theme: theme)
     }
+    func shuffle() {
+        model.shuffle()
+    }
 }
